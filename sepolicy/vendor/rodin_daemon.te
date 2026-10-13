@@ -60,10 +60,19 @@ allow rodin_daemon sysfs_rodin_touch:dir r_dir_perms;
 allow rodin_daemon sysfs_rodin_touch:file rw_file_perms;
 
 # Xiaomi display and touch AIDL services.
-binder_call(rodin_daemon, vendor_hal_displayfeature_xiaomi_default)
+binder_call(rodin_daemon, vendor_hal_displayfeature_default)
 binder_call(rodin_daemon, hal_touchfeature_xiaomi_default)
-allow rodin_daemon vendor_hal_displayfeature_xiaomi_service:service_manager find;
+allow rodin_daemon vendor_hal_displayfeature_service:service_manager find;
 allow rodin_daemon hal_touchfeature_xiaomi_service:service_manager find;
+
+# Device tree specific sysfs and proc nodes for touch and battery/usb.
+allow rodin_daemon vendor_proc_tp_file:file r_file_perms;
+allow rodin_daemon vendor_sysfs_touch:dir r_dir_perms;
+allow rodin_daemon vendor_sysfs_touch:file rw_file_perms;
+allow rodin_daemon vendor_sysfs_battery_supply:dir search;
+allow rodin_daemon vendor_sysfs_battery_supply:file rw_file_perms;
+allow rodin_daemon vendor_sysfs_usb_supply:dir search;
+allow rodin_daemon vendor_sysfs_usb_supply:file rw_file_perms;
 
 # Rodin's vendor touch service keeps the selected native panel cadence in its
 # private THP timing block. Restrict cross-process access to that one HAL so
