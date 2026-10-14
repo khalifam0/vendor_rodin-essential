@@ -12,20 +12,22 @@ allow rodin_daemon sysfs_memory:file rw_file_perms;
 allow rodin_daemon sysfs_ged:dir search;
 allow rodin_daemon sysfs_ged:file rw_file_perms;
 allow rodin_daemon sysfs_mali_power_policy:file rw_file_perms;
+allow rodin_daemon sysfs_therm:dir r_dir_perms;
 allow rodin_daemon sysfs_therm:file rw_file_perms;
 # Battery/USB class links resolve through battery-manager/power_supply.
-# Traverse the parent only; do not grant access to batteryinfo files.
 allow rodin_daemon sysfs_batteryinfo:dir search;
+allow rodin_daemon sysfs_batteryinfo:file rw_file_perms;
 allow rodin_daemon sysfs_battery_supply:dir search;
 allow rodin_daemon sysfs_usb_supply:dir search;
 allow rodin_daemon sysfs_usb_supply:file rw_file_perms;
 allow rodin_daemon sysfs_battery_supply:file rw_file_perms;
+allow rodin_daemon sysfs_zram:dir r_dir_perms;
 allow rodin_daemon sysfs_zram:file rw_file_perms;
 allow rodin_daemon sysfs_fs_f2fs:file rw_file_perms;
 allow rodin_daemon sysfs_blockio:file rw_file_perms;
-# Screen-state readback falls back to dumpsys power; generic LED file access
-# is forbidden to this coredomain by the platform policy.
+allow rodin_daemon vendor_sysfs_displayfeature:dir r_dir_perms;
 allow rodin_daemon vendor_sysfs_displayfeature:file r_file_perms;
+allow rodin_daemon sysfs_leds:dir r_dir_perms;
 allow rodin_daemon proc_powerhal_cpu_ctrl:file rw_file_perms;
 allow rodin_daemon proc_touch_boost:file rw_file_perms;
 allow rodin_daemon proc_swappiness:file rw_file_perms;

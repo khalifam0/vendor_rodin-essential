@@ -43,11 +43,12 @@ userdebug_or_eng(`
 
 binder_use(rodin_daemon)
 binder_call(rodin_daemon, system_server)
+binder_call(system_server, rodin_daemon)
 # Framework command clients pass their output pipe to system_server. Permit
 # only that reply direction; without it `cmd window`, `cmd settings`, and
 # `dumpsys` can remain blocked even though the Binder call itself is allowed.
 allow system_server rodin_daemon:fd use;
-allow system_server rodin_daemon:fifo_file write;
+allow system_server rodin_daemon:fifo_file rw_file_perms;
 allow rodin_daemon display_service:service_manager find;
 allow rodin_daemon power_service:service_manager find;
 allow rodin_daemon settings_service:service_manager find;
