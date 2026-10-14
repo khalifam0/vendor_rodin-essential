@@ -78,10 +78,18 @@ allow rodin_daemon vendor_sysfs_touch:file rw_file_perms;
 # touch_thp_* file inside it gets sysfs_touch_hostprocess. Without this
 # rule the 240/480 Hz cadence restore is denied on both panel variants.
 allow rodin_daemon sysfs_touch_hostprocess:file rw_file_perms;
-allow rodin_daemon vendor_sysfs_battery_supply:dir search;
+allow rodin_daemon input_device:dir r_dir_perms;
+allow rodin_daemon sysfs_battery_supply:lnk_file r_file_perms;
+allow rodin_daemon sysfs_usb_supply:lnk_file r_file_perms;
+allow rodin_daemon vendor_sysfs_battery_supply:dir r_dir_perms;
 allow rodin_daemon vendor_sysfs_battery_supply:file rw_file_perms;
-allow rodin_daemon vendor_sysfs_usb_supply:dir search;
+allow rodin_daemon vendor_sysfs_battery_supply:lnk_file r_file_perms;
+allow rodin_daemon vendor_sysfs_usb_supply:dir r_dir_perms;
 allow rodin_daemon vendor_sysfs_usb_supply:file rw_file_perms;
+allow rodin_daemon vendor_sysfs_usb_supply:lnk_file r_file_perms;
+
+# CPU frequency limits and CPU core online controls from the device tree
+allow rodin_daemon vendor_sysfs_cpu_control:file rw_file_perms;
 
 # Rodin's vendor touch service keeps the selected native panel cadence in its
 # private THP timing block. Restrict cross-process access to that one HAL so
