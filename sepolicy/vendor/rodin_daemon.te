@@ -11,7 +11,6 @@ allow rodin_daemon sysfs_memory:dir search;
 allow rodin_daemon sysfs_memory:file rw_file_perms;
 allow rodin_daemon sysfs_ged:dir search;
 allow rodin_daemon sysfs_ged:file rw_file_perms;
-allow rodin_daemon sysfs_mali_power_policy:file rw_file_perms;
 allow rodin_daemon sysfs_therm:dir r_dir_perms;
 allow rodin_daemon sysfs_therm:file rw_file_perms;
 # Battery/USB class links resolve through battery-manager/power_supply.
