@@ -27,7 +27,6 @@ allow rodin_daemon sysfs_blockio:file rw_file_perms;
 allow rodin_daemon vendor_sysfs_displayfeature:dir r_dir_perms;
 allow rodin_daemon vendor_sysfs_displayfeature:file r_file_perms;
 allow rodin_daemon sysfs_leds:dir r_dir_perms;
-allow rodin_daemon sysfs_leds:file r_file_perms;
 allow rodin_daemon proc_powerhal_cpu_ctrl:file rw_file_perms;
 allow rodin_daemon proc_touch_boost:file rw_file_perms;
 allow rodin_daemon proc_swappiness:file rw_file_perms;

@@ -2,7 +2,7 @@ service rodin_daemon /product/bin/rodin_daemon
     class late_start
     user root
     group root system package_info input graphics wakelock
-    capabilities DAC_OVERRIDE SYS_ADMIN SYS_NICE SYS_PTRACE
+    capabilities SYS_ADMIN SYS_NICE
     priority -10
     oom_score_adjust -900
     setenv RODIN_STATE_DIR /data/system/rodin-essential
