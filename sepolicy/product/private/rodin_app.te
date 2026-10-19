@@ -5,3 +5,6 @@ untrusted_app_domain(rodin_app)
 # Ordinary application networking, including the authenticated module fallback
 # when a signature-compatible module updates a ROM-native installation.
 net_domain(rodin_app)
+
+# Allow reading max_map_count for memory management
+allow rodin_app proc_max_map_count:file r_file_perms;
